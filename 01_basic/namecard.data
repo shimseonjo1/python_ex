@@ -1,0 +1,20 @@
+[
+  {
+    "name": "\ud64d\uae38\ub3d9",
+    "address": "\uc11c\uc6b8",
+    "tel": "111-1111-1111",
+    "email": "hong@gmail.com"
+  },
+  {
+    "name": "\uae40\ub098\ub9ac",
+    "address": "\uad11\uc8fc",
+    "tel": "111-1111-1111",
+    "email": "kim@gmail.com"
+  },
+  {
+    "name": "\uae40\ucca0\uc218",
+    "address": "\ub300\uc804",
+    "tel": "111-1111-2222",
+    "email": "kim999@gmail.com"
+  }
+]
