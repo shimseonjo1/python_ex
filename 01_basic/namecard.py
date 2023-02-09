@@ -47,13 +47,13 @@ class CardBook:
     def get_number_of_pages(self):
         return len(self.cards.keys())
 
-    def list_cards(self,key=None):
-
-        for page in self.cards:
-            print(self.cards[page])
-
-        # sorted_dict = sorted(self.cards.items(), key = lambda item: item[1].name, reverse = False)
-        # for page,card in sorted_dict:
-        #     print(card)
+    def list_cards(self,key=None,reverse=False):
+        if key == None:
+            for page in self.cards:
+                print(self.cards[page])
+        else:
+            sorted_dict = sorted(self.cards.items(), key = eval(f'lambda item: item[1].{key}'), reverse = reverse)
+            for page,card in sorted_dict:
+                print(card)
 
 

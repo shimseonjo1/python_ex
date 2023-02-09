@@ -47,7 +47,13 @@ while True:
         if cardbook == None:
             print('cardbook 생성한 후 가능합니다.')
         else:
-            cardbook.list_cards()
+            key = input('정렬 키(입력값:name,address,tel,email) >>>')
+            sort = bool(input('오름차순(enter),내림차순(1) >>>'))
+            # print(sort,type(sort))
+            if key in ('name','address','tel','email'):
+                cardbook.list_cards(key,sort)
+            else:
+                cardbook.list_cards(reverse=sort)
 
     elif menu == '6':
         print('프로그램 종료')
