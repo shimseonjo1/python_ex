@@ -6,8 +6,8 @@ path = os.path.dirname(__file__)
 # print(path)
 cardbook = None
 
-with open(path+'/cardbook.pickle','rb') as f:
-    cardbook = pickle.load(f)
+# with open(path+'/cardbook1.pickle','rb') as f:
+#     cardbook = pickle.load(f)
 
 while True:
     menu = input('''
@@ -20,15 +20,18 @@ while True:
         else:
             print('생성된 cardbook이 존재합니다.')
     elif menu == '2':
-        if cardbook == None:
-            print('cardbook 생성한 후 추가 가능합니다.')
-        else:
+        try:
             name = input('name >>> ')
             address = input('address >>> ')
-            tel = input('tel >>> ')
+            tel = int(input('tel >>> '))
             email = input('email >>> ')
             card = nc.Card(name,address,tel,email)
             cardbook.add_card(card)
+        except IndexError:
+            print('인덱스 오류')
+        except Exception as e:
+            print(e)
+            print('cardbook 생성한 후 가능합니다.')
     elif menu == '3':
         if cardbook == None:
             print('cardbook 생성한 후 가능합니다.')
@@ -63,5 +66,5 @@ while True:
         break
 
 
-with open('01_basic/cardbook.pickle','wb') as f:
+with open('01_basic/cardbook1.pickle','wb') as f:
     pickle.dump(cardbook,f)

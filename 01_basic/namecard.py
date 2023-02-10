@@ -33,7 +33,7 @@ class CardBook:
                 self.cards[self.page_number] = card
                 self.page_number += 1
             else:
-                self.cards = {page:card}
+                self.cards[page] = card
                 self.page_number += 1
         else:
             print('페이지가 모두 채워졌습니다.')
