@@ -8,10 +8,17 @@
 종료 - 종료시 데이터는 파일로 저장합니다.
 시작 - 프로그램 시작시 데이터 파일을 로드합니다.
 '''
-
+import pickle, os
 from Account import Account   # Account.deposit()
 #import Account                 Account.Account.deposit()
+
+path = os.path.dirname(__file__)
 account_list=[]
+with open(path + '/account.pickle','rb') as f:
+    account_list = pickle.load(f)
+
+result=list(map(lambda x:x.account_number,account_list))
+Account.account_count = max(result)
 
 while True:
     display = '''
@@ -21,7 +28,15 @@ while True:
 >>>  '''
     menu = input(display)
     if menu == '1':
-        pass
+        name = input('이름 >>> ')
+        balance = ''
+        while not balance.isdecimal():
+            balance = input('입금금액 >>> ')
+        balance = int(balance)
+        account_list.append(Account(name,balance))
+        print('-'*50)
+        for item in account_list:
+            print(item)
     elif menu =='2':
         pass
     elif menu =='3':
@@ -32,5 +47,11 @@ while True:
         pass
     elif menu =='6':
         pass
+    elif menu =='7':
+        print('프로그램 종료!!')
+        break
     else:
         print('메뉴를 잘못 선택하셨습니다.')
+
+with open(path + '/account.pickle','wb') as f:
+    pickle.dump(account_list,f)
