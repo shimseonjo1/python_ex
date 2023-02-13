@@ -9,8 +9,9 @@
 시작 - 프로그램 시작시 데이터 파일을 로드합니다.
 '''
 import pickle, os
-from Account import Account   # Account.deposit()
+from Account import Account ,str2int  # Account.deposit()
 #import Account                 Account.Account.deposit()
+
 
 path = os.path.dirname(__file__)
 account_list=[]
@@ -29,19 +30,13 @@ while True:
     menu = input(display)
     if menu == '1':
         name = input('이름 >>> ')
-        balance = ''
-        while not balance.isdecimal():
-            balance = input('입금금액 >>> ')
-        balance = int(balance)
+        balance = str2int('입금 금액을 입력하세요')
         account_list.append(Account(name,balance))
         print('-'*50)
         for item in account_list:
             print(item)
     elif menu =='2':
-        account_num = ''
-        while not account_num.isdecimal():
-            account_num = input('계좌번호를 입력하세요')
-        account_num = int(account_num)
+        account_num = str2int('계좌번호를 입력하세요')
         check = 0
         for acc in account_list:
             if acc.account_number == account_num:
@@ -52,10 +47,7 @@ while True:
         if check == 0 :
             print('계좌번호가 없습니다.')
     elif menu =='3':
-        account_num = ''
-        while not account_num.isdecimal():
-            account_num = input('계좌번호를 입력하세요')
-        account_num = int(account_num)
+        account_num = str2int('계좌번호를 입력하세요')
         check = 0
         for acc in account_list:
             if acc.account_number == account_num:
@@ -66,10 +58,7 @@ while True:
         if check == 0 :
             print('계좌번호가 없습니다.')
     elif menu =='4':
-        account_num = ''
-        while not account_num.isdecimal():
-            account_num = input('계좌번호를 입력하세요')
-        account_num = int(account_num)
+        account_num = str2int('계좌번호를 입력하세요')
         check = 0
         for acc in account_list:
             if acc.account_number == account_num:
@@ -79,10 +68,7 @@ while True:
         if check == 0 :
             print('계좌번호가 없습니다.')
     elif menu =='5':
-        account_num = ''
-        while not account_num.isdecimal():
-            account_num = input('계좌번호를 입력하세요')
-        account_num = int(account_num)
+        account_num = str2int('계좌번호를 입력하세요')
         check = 0
         for acc in account_list:
             if acc.account_number == account_num:

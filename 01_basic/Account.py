@@ -39,3 +39,11 @@ class Account:
 
     def __str__(self):
         return f'예금주:{self.name}, 계좌번호:{self.account_number}, 잔고:{self.balance:>15,}원'
+
+
+
+def str2int(msg):
+        data = ''
+        while not data.isdecimal():
+            data = input(msg + '>>> ')
+        return int(data)
