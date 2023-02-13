@@ -38,4 +38,4 @@ class Account:
         print(self.__str__())
 
     def __str__(self):
-        return f'예금주:{self.name}, 계좌번호:{self.account_number}, 잔고:{self.balance}'
+        return f'예금주:{self.name}, 계좌번호:{self.account_number}, 잔고:{self.balance:>15,}원'

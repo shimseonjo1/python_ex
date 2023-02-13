@@ -38,15 +38,68 @@ while True:
         for item in account_list:
             print(item)
     elif menu =='2':
-        pass
+        account_num = ''
+        while not account_num.isdecimal():
+            account_num = input('계좌번호를 입력하세요')
+        account_num = int(account_num)
+        check = 0
+        for acc in account_list:
+            if acc.account_number == account_num:
+                check = 1
+                amount =  int(input('입금할 금액을 입력하세요 >>> '))   
+                acc.deposit(amount)
+                break
+        if check == 0 :
+            print('계좌번호가 없습니다.')
     elif menu =='3':
-        pass
+        account_num = ''
+        while not account_num.isdecimal():
+            account_num = input('계좌번호를 입력하세요')
+        account_num = int(account_num)
+        check = 0
+        for acc in account_list:
+            if acc.account_number == account_num:
+                check = 1
+                amount =  int(input('출금할 금액을 입력하세요 >>> '))   
+                acc.withdraw(amount)
+                break
+        if check == 0 :
+            print('계좌번호가 없습니다.')
     elif menu =='4':
-        pass
+        account_num = ''
+        while not account_num.isdecimal():
+            account_num = input('계좌번호를 입력하세요')
+        account_num = int(account_num)
+        check = 0
+        for acc in account_list:
+            if acc.account_number == account_num:
+                check = 1
+                print(acc.total_log)
+                break
+        if check == 0 :
+            print('계좌번호가 없습니다.')
     elif menu =='5':
-        pass
+        account_num = ''
+        while not account_num.isdecimal():
+            account_num = input('계좌번호를 입력하세요')
+        account_num = int(account_num)
+        check = 0
+        for acc in account_list:
+            if acc.account_number == account_num:
+                check = 1
+                print(acc)
+                break
+        if check == 0 :
+            print('계좌번호가 없습니다.')
     elif menu =='6':
-        pass
+        key = input('정렬 키(입력값:name,balance,account_number)>>>> ')
+        sort = bool(input('오름차순(enter),내림차순(1) >>> '))
+        if key in ('name','balance','account_number'):
+            sorted_list = sorted(account_list,reverse=sort,key=eval(f'lambda x : x.{key}'))
+        else:
+            sorted_list = sorted(account_list,reverse=sort)
+        for acc in sorted_list:
+            print(acc)    
     elif menu =='7':
         print('프로그램 종료!!')
         break
