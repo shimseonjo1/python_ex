@@ -17,3 +17,5 @@
                - 명함검색: search_card()
                - 명함리스트: list_card()
 '''
+
+import namecard
