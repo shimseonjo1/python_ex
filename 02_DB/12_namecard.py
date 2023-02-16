@@ -18,4 +18,26 @@
                - 명함리스트: list_card()
 '''
 
-import namecard
+import namecard as nc,sys
+nc.create_table()
+while True:
+	display = '''
+---------------------------------------------------------------
+1.명함추가, 2.명함수정, 3.명함삭제, 4.명함검색, 5.명함리스트, 6.종료
+>>>> '''
+	menu = input(display)
+	if menu == '1':
+		nc.insert_card()
+	elif menu == '2':
+		nc.update_card()
+	elif menu == '3':
+		nc.delete_card()
+	elif menu == '4':
+		nc.search_card()
+	elif menu == '5':
+		nc.list_card()
+	elif menu == '6':
+		print('프로그램 종료!')
+		sys.exit() # break
+	else:
+		print('메뉴 선택을 잘못하셨습니다.')
