@@ -1,9 +1,6 @@
-from urllib import request
-from bs4 import BeautifulSoup
-
 url = 'https://music.bugs.co.kr/chart'
 response = request.urlopen(url)
-soup = BeautifulSoup(response,'html.parser')
+soup = BeautifulSoup(response,'lxml')
 
 title_list = []
 artist_list = []
@@ -14,10 +11,22 @@ for item in title:
     # print(item.string)
     title_list.append(item.string)
 
-artist = soup.select('p.artist > a')
+artist = soup.select('p.artist')
+print(len(artist))
 for item in artist:
-    # print(item.string)
-    artist_list.append(item.string.strip())
+    # print(item)
+    # print(item.text)
+    # print(item.text.strip())
+    # print('--------------')
+    artist_list.append(item.text.strip())
+    
+print(len(title_list),len(artist_list))
 
-result = list(zip(title_list,artist_list))
+artist_list_final = []
+for item in artist_list:
+    # print(item.replace('\n\n\r\n',','))
+    # print(item.replace('\n\n\r\n',',').split(',')[0])
+    artist_list_final.append(item.replace('\n\n\r\n',',').split(',')[0])
+    
+result = list(zip(title_list,artist_list_final))
 print(result)
